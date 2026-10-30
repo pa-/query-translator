@@ -28,7 +28,7 @@ final class Tag extends Token
      * @param string $marker
      * @param string $tag
      */
-    public function __construct($lexeme, $position, $marker, $tag)
+    public function __construct(string $lexeme, int $position, string $marker, string $tag)
     {
         $this->marker = $marker;
         $this->tag = $tag;

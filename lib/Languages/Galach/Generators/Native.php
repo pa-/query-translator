@@ -27,7 +27,7 @@ final class Native
      *
      * @return string
      */
-    public function generate(SyntaxTree $syntaxTree)
+    public function generate(SyntaxTree $syntaxTree): string
     {
         return $this->visitor->visit($syntaxTree->rootNode);
     }

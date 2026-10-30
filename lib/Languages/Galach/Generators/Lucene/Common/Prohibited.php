@@ -12,12 +12,12 @@ use QueryTranslator\Values\Node;
  */
 final class Prohibited extends Visitor
 {
-    public function accept(Node $node)
+    public function accept(Node $node): bool
     {
         return $node instanceof ProhibitedNode;
     }
 
-    public function visit(Node $node, Visitor $subVisitor = null, $options = null)
+    public function visit(Node $node, ?Visitor $subVisitor = null, $options = null): string
     {
         if (!$node instanceof ProhibitedNode) {
             throw new LogicException(

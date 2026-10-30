@@ -15,12 +15,12 @@ use QueryTranslator\Values\Node;
  */
 final class UnaryOperator extends Visitor
 {
-    public function accept(Node $node)
+    public function accept(Node $node): bool
     {
         return $node instanceof Mandatory || $node instanceof Prohibited || $node instanceof LogicalNot;
     }
 
-    public function visit(Node $node, Visitor $subVisitor = null, $options = null)
+    public function visit(Node $node, ?Visitor $subVisitor = null, $options = null): string
     {
         if (!$node instanceof Mandatory && !$node instanceof Prohibited && !$node instanceof LogicalNot) {
             throw new LogicException(

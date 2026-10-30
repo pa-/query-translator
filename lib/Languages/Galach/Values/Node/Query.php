@@ -19,7 +19,7 @@ final class Query extends Node
         $this->nodes = $nodes;
     }
 
-    public function getNodes()
+    public function getNodes(): array
     {
         return $this->nodes;
     }

@@ -30,7 +30,7 @@ final class Word extends Token
      * @param string $domain
      * @param string $word
      */
-    public function __construct($lexeme, $position, $domain, $word)
+    public function __construct(string $lexeme, int $position, string $domain, string $word)
     {
         $this->domain = $domain;
         $this->word = $word;

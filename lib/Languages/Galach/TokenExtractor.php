@@ -23,7 +23,7 @@ abstract class TokenExtractor
      *
      * @return \QueryTranslator\Values\Token Extracted token
      */
-    final public function extract($string, $position)
+    final public function extract(string $string, int $position): \QueryTranslator\Values\Token
     {
         $byteOffset = $this->getByteOffset($string, $position);
 
@@ -58,7 +58,7 @@ abstract class TokenExtractor
      *
      * @return array
      */
-    abstract protected function getExpressionTypeMap();
+    abstract protected function getExpressionTypeMap(): array;
 
     /**
      * Create a term type token by the given parameters.
@@ -70,7 +70,7 @@ abstract class TokenExtractor
      *
      * @return \QueryTranslator\Values\Token
      */
-    abstract protected function createTermToken($position, array $data);
+    abstract protected function createTermToken(int $position, array $data): \QueryTranslator\Values\Token;
 
     /**
      * Create a token object from the given parameters.
@@ -81,7 +81,7 @@ abstract class TokenExtractor
      *
      * @return \QueryTranslator\Values\Token
      */
-    private function createToken($type, $position, array $data)
+    private function createToken(int $type, int $position, array $data): \QueryTranslator\Values\Token
     {
         if ($type === Tokenizer::TOKEN_GROUP_BEGIN) {
             return $this->createGroupBeginToken($position, $data);
@@ -97,12 +97,12 @@ abstract class TokenExtractor
     /**
      * Create an instance of Group token by the given parameters.
      *
-     * @param $position
+     * @param int $position
      * @param array $data
      *
      * @return \QueryTranslator\Values\Token
      */
-    protected function createGroupBeginToken($position, array $data)
+    protected function createGroupBeginToken(int $position, array $data): \QueryTranslator\Values\Token
     {
         return new GroupBegin($data['lexeme'], $position, $data['delimiter'], $data['domain']);
     }
@@ -117,7 +117,7 @@ abstract class TokenExtractor
      *
      * @return int
      */
-    private function getByteOffset($string, $position)
+    private function getByteOffset(string $string, int $position): int
     {
         return strlen(mb_substr($string, 0, $position));
     }

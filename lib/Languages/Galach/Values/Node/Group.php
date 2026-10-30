@@ -28,20 +28,20 @@ final class Group extends Node
 
     /**
      * @param \QueryTranslator\Values\Node[] $nodes
-     * @param \QueryTranslator\Languages\Galach\Values\Token\GroupBegin $tokenLeft
-     * @param \QueryTranslator\Values\Token $tokenRight
+     * @param null|\QueryTranslator\Languages\Galach\Values\Token\GroupBegin $tokenLeft
+     * @param null|\QueryTranslator\Values\Token $tokenRight
      */
     public function __construct(
         array $nodes = [],
-        GroupBegin $tokenLeft = null,
-        Token $tokenRight = null
+        ?GroupBegin $tokenLeft = null,
+        ?Token $tokenRight = null
     ) {
         $this->nodes = $nodes;
         $this->tokenLeft = $tokenLeft;
         $this->tokenRight = $tokenRight;
     }
 
-    public function getNodes()
+    public function getNodes(): array
     {
         return $this->nodes;
     }

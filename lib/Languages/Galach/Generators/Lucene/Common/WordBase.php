@@ -31,7 +31,7 @@ abstract class WordBase extends Visitor
      * @param array|null $domainFieldMap
      * @param string|null $defaultFieldName
      */
-    public function __construct(array $domainFieldMap = null, $defaultFieldName = null)
+    public function __construct(?array $domainFieldMap = null, ?string $defaultFieldName = null)
     {
         if ($domainFieldMap !== null) {
             $this->domainFieldMap = $domainFieldMap;
@@ -40,12 +40,12 @@ abstract class WordBase extends Visitor
         $this->defaultFieldName = $defaultFieldName;
     }
 
-    public function accept(Node $node)
+    public function accept(Node $node): bool
     {
         return $node instanceof Term && $node->token instanceof WordToken;
     }
 
-    public function visit(Node $node, Visitor $subVisitor = null, $options = null)
+    public function visit(Node $node, ?Visitor $subVisitor = null, $options = null): string
     {
         if (!$node instanceof Term) {
             throw new LogicException(
@@ -74,7 +74,7 @@ abstract class WordBase extends Visitor
      *
      * @return string
      */
-    abstract protected function escapeWord($string);
+    abstract protected function escapeWord(string $string): string;
 
     /**
      * Return backend field name prefix for the given $token.
@@ -83,7 +83,7 @@ abstract class WordBase extends Visitor
      *
      * @return string
      */
-    private function getSolrFieldPrefix(WordToken $token)
+    private function getSolrFieldPrefix(WordToken $token): string
     {
         if ($token->domain === '') {
             return '';

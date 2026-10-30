@@ -23,21 +23,21 @@ final class LogicalOr extends Node
     public $token;
 
     /**
-     * @param \QueryTranslator\Values\Node $leftOperand
-     * @param \QueryTranslator\Values\Node $rightOperand
-     * @param \QueryTranslator\Values\Token $token
+     * @param null|\QueryTranslator\Values\Node $leftOperand
+     * @param null|\QueryTranslator\Values\Node $rightOperand
+     * @param null|\QueryTranslator\Values\Token $token
      */
     public function __construct(
-        Node $leftOperand = null,
-        Node $rightOperand = null,
-        Token $token = null
+       ?Node $leftOperand = null,
+       ?Node $rightOperand = null,
+       ?Token $token = null
     ) {
         $this->leftOperand = $leftOperand;
         $this->rightOperand = $rightOperand;
         $this->token = $token;
     }
 
-    public function getNodes()
+    public function getNodes(): array
     {
         return [
             $this->leftOperand,

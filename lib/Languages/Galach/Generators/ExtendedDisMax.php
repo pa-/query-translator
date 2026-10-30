@@ -30,7 +30,7 @@ final class ExtendedDisMax
      *
      * @return string
      */
-    public function generate(SyntaxTree $syntaxTree, $options = null)
+    public function generate(SyntaxTree $syntaxTree, $options = null): string
     {
         return $this->visitor->visit($syntaxTree->rootNode, null, $options);
     }

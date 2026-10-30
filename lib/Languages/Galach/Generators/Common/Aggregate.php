@@ -32,17 +32,17 @@ final class Aggregate extends Visitor
      *
      * @param \QueryTranslator\Languages\Galach\Generators\Common\Visitor $visitor
      */
-    public function addVisitor(Visitor $visitor)
+    public function addVisitor(Visitor $visitor): void
     {
         $this->visitors[] = $visitor;
     }
 
-    public function accept(Node $node)
+    public function accept(Node $node): bool
     {
         return true;
     }
 
-    public function visit(Node $node, Visitor $subVisitor = null, $options = null)
+    public function visit(Node $node, ?Visitor $subVisitor = null, $options = null): string
     {
         foreach ($this->visitors as $visitor) {
             if ($visitor->accept($node)) {
