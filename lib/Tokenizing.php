@@ -14,5 +14,5 @@ interface Tokenizing
      *
      * @return \QueryTranslator\Values\TokenSequence
      */
-    public function tokenize($string);
+    public function tokenize(string $string): \QueryTranslator\Values\TokenSequence;
 }

@@ -16,5 +16,5 @@ interface Parsing
      *
      * @return \QueryTranslator\Values\SyntaxTree
      */
-    public function parse(TokenSequence $tokenSequence);
+    public function parse(TokenSequence $tokenSequence): \QueryTranslator\Values\SyntaxTree;
 }

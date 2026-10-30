@@ -38,12 +38,12 @@ final class Full extends TokenExtractor
         '/(?<lexeme>(?:(?<domain>[a-zA-Z_][a-zA-Z0-9_\-.]*):)?(?<word>(?:\\\\\\\\|\\\\ |\\\\\(|\\\\\)|\\\\"|[^"()\s])+?))(?:(?<!\\\\)["]|\(|\)|$|\s)/Au' => Tokenizer::TOKEN_TERM,
     ];
 
-    protected function getExpressionTypeMap()
+    protected function getExpressionTypeMap(): array
     {
         return self::$expressionTypeMap;
     }
 
-    protected function createTermToken($position, array $data)
+    protected function createTermToken(int $position, array $data): \QueryTranslator\Values\Token
     {
         $lexeme = $data['lexeme'];
 

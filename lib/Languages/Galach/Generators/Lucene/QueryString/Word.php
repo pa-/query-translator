@@ -16,7 +16,7 @@ final class Word extends WordBase
      *
      * Note: additionally to what is defined above we also escape blank space.
      */
-    protected function escapeWord($string)
+    protected function escapeWord(string $string): string
     {
         return preg_replace(
             '/(\\+|-|\\=|&&|\\|\\||\\>|\\<|!|\\(|\\)|\\{|}|\\[|]|\\^|"|~|\\*|\\?|:|\\/|\\\\| )/',

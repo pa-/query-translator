@@ -14,5 +14,5 @@ abstract class Node
      *
      * @return \QueryTranslator\Values\Node[]
      */
-    abstract public function getNodes();
+    abstract public function getNodes(): array;
 }

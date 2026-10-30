@@ -35,12 +35,12 @@ final class Text extends TokenExtractor
         '/(?<lexeme>(?<word>(?:\\\\\\\\|\\\\ |\\\\\(|\\\\\)|\\\\"|[^"()\s])+?))(?:(?<!\\\\)["]|\(|\)|$|\s)/Au' => Tokenizer::TOKEN_TERM,
     ];
 
-    protected function getExpressionTypeMap()
+    protected function getExpressionTypeMap(): array
     {
         return self::$expressionTypeMap;
     }
 
-    protected function createTermToken($position, array $data)
+    protected function createTermToken(int $position, array $data): \QueryTranslator\Values\Token
     {
         $lexeme = $data['lexeme'];
 
@@ -69,7 +69,7 @@ final class Text extends TokenExtractor
         throw new RuntimeException('Could not extract term token from the given data');
     }
 
-    protected function createGroupBeginToken($position, array $data)
+    protected function createGroupBeginToken(int $position, array $data): \QueryTranslator\Values\Token
     {
         return new GroupBegin($data['lexeme'], $position, $data['lexeme'], '');
     }

@@ -40,12 +40,12 @@ final class Group extends Visitor
         $this->defaultFieldName = $defaultFieldName;
     }
 
-    public function accept(Node $node)
+    public function accept(Node $node): bool
     {
         return $node instanceof GroupNode;
     }
 
-    public function visit(Node $node, Visitor $subVisitor = null, $options = null)
+    public function visit(Node $node, ?Visitor $subVisitor = null, $options = null): string
     {
         if (!$node instanceof GroupNode) {
             throw new LogicException(
@@ -76,7 +76,7 @@ final class Group extends Visitor
      *
      * @return string
      */
-    private function getSolrFieldPrefix(GroupBegin $token)
+    private function getSolrFieldPrefix(GroupBegin $token): string
     {
         if ($token->domain === '') {
             return '';

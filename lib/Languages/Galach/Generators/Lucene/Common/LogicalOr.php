@@ -12,12 +12,12 @@ use QueryTranslator\Values\Node;
  */
 final class LogicalOr extends Visitor
 {
-    public function accept(Node $node)
+    public function accept(Node $node): bool
     {
         return $node instanceof LogicalOrNode;
     }
 
-    public function visit(Node $node, Visitor $subVisitor = null, $options = null)
+    public function visit(Node $node, ?Visitor $subVisitor = null, $options = null): string
     {
         if (!$node instanceof LogicalOrNode) {
             throw new LogicException(

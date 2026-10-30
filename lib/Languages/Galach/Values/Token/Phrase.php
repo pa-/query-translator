@@ -36,7 +36,7 @@ final class Phrase extends Token
      * @param string $quote
      * @param string $phrase
      */
-    public function __construct($lexeme, $position, $domain, $quote, $phrase)
+    public function __construct(string $lexeme, int $position, string $domain, string $quote, string $phrase)
     {
         $this->domain = $domain;
         $this->quote = $quote;

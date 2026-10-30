@@ -20,7 +20,7 @@ final class Term extends Node
         $this->token = $token;
     }
 
-    public function getNodes()
+    public function getNodes(): array
     {
         return [];
     }

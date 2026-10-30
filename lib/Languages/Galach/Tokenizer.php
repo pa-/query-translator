@@ -102,7 +102,7 @@ final class Tokenizer implements Tokenizing
         $this->tokenExtractor = $tokenExtractor;
     }
 
-    public function tokenize($string)
+    public function tokenize(string $string): \QueryTranslator\Values\TokenSequence
     {
         $length = mb_strlen($string);
         $position = 0;

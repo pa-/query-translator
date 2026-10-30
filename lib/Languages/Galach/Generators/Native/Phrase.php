@@ -13,12 +13,12 @@ use QueryTranslator\Values\Node;
  */
 final class Phrase extends Visitor
 {
-    public function accept(Node $node)
+    public function accept(Node $node): bool
     {
         return $node instanceof Term && $node->token instanceof PhraseToken;
     }
 
-    public function visit(Node $node, Visitor $subVisitor = null, $options = null)
+    public function visit(Node $node, ?Visitor $subVisitor = null, $options = null): string
     {
         if (!$node instanceof Term) {
             throw new LogicException(

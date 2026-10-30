@@ -25,12 +25,12 @@ final class GroupBegin extends Token
     public $domain;
 
     /**
-     * @param string $lexeme
-     * @param int $position
-     * @param string $domain
-     * @param string $delimiter
+     * @param string      $lexeme
+     * @param int         $position
+     * @param string      $delimiter
+     * @param string|null $domain
      */
-    public function __construct($lexeme, $position, $delimiter, $domain)
+    public function __construct(string $lexeme, int $position, string $delimiter, ?string $domain)
     {
         $this->delimiter = $delimiter;
         $this->domain = $domain;

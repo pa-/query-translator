@@ -156,7 +156,7 @@ final class Parser implements Parsing
      */
     private $corrections = [];
 
-    public function parse(TokenSequence $tokenSequence)
+    public function parse(TokenSequence $tokenSequence): \QueryTranslator\Values\SyntaxTree
     {
         $this->init($tokenSequence->tokens);
 

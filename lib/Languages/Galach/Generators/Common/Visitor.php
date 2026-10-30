@@ -16,16 +16,16 @@ abstract class Visitor
      *
      * @return bool
      */
-    abstract public function accept(Node $node);
+    abstract public function accept(Node $node): bool;
 
     /**
      * Visit the given $node.
      *
      * @param \QueryTranslator\Values\Node $node
-     * @param \QueryTranslator\Languages\Galach\Generators\Common\Visitor $subVisitor
+     * @param \QueryTranslator\Languages\Galach\Generators\Common\Visitor|null $subVisitor
      * @param mixed $options
      *
      * @return string
      */
-    abstract public function visit(Node $node, Visitor $subVisitor = null, $options = null);
+    abstract public function visit(Node $node, ?Visitor $subVisitor, $options = null): string;
 }

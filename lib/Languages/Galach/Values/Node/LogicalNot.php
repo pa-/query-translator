@@ -18,16 +18,16 @@ final class LogicalNot extends Node
     public $token;
 
     /**
-     * @param \QueryTranslator\Values\Node $operand
-     * @param \QueryTranslator\Values\Token $token
+     * @param null|\QueryTranslator\Values\Node $operand
+     * @param null|\QueryTranslator\Values\Token $token
      */
-    public function __construct(Node $operand = null, Token $token = null)
+    public function __construct(?Node $operand = null, ?Token $token = null)
     {
         $this->operand = $operand;
         $this->token = $token;
     }
 
-    public function getNodes()
+    public function getNodes(): array
     {
         return [$this->operand];
     }

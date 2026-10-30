@@ -28,7 +28,7 @@ final class User extends Token
      * @param string $marker
      * @param string $user
      */
-    public function __construct($lexeme, $position, $marker, $user)
+    public function __construct(string $lexeme, int $position, string $marker, string $user)
     {
         $this->marker = $marker;
         $this->user = $user;
